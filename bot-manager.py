@@ -7,6 +7,8 @@ import getpass
 
 user = getpass.getuser()
 
+saveFile = 'savefile.bms'
+
 class Window(Frame):
 
     def __init__(self, master):
@@ -54,6 +56,12 @@ class Window(Frame):
         fname = askopenfilename(initialdir="C:/",
                                 filetypes=(("Batch script", "*.bat"), ("Python script", "*.py"), ("All files", "*.*")),
                                 title="Choose a file")
+        file = open(saveFile, "a")
+        file.write('\n' + fname)
+        file.close()
+
+        self.RunFile(fname)
+
 
     def RunFile(self, fname: StringVar):
         fdir = os.path.split(fname)[0]
