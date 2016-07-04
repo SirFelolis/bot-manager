@@ -30,10 +30,6 @@ class Window(Frame):
         buttonRun = Button(self.master, text="Run", command=lambda: self.RunFile())
         buttonRun.place(x=440,y=10, anchor=NE)
 
-        labelPath = Label(self.master, relief=SUNKEN, )
-        labelPath.pack()
-        labelPath.place(x=10, y=15, width=320)
-
         # Quit button
         buttonQuit = Button(self.master, text="Quit", command=self.ClientExit)
         buttonQuit.pack(side=BOTTOM)
