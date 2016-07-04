@@ -54,14 +54,16 @@ class Window(Frame):
 
     def ChooseFile(self):
         fname = askopenfilename(initialdir="C:/",
-                                filetypes=(("Batch script", "*.bat"), ("Python script", "*.py"), ("All files", "*.*")),
+                                filetypes=(("Batch script", "*.bat"), ("All files", "*.*")),
                                 title="Choose a file")
         file = open(saveFile, "a")
         file.write('\n' + fname)
         file.close()
 
-        self.RunFile(fname)
-
+        try:
+            self.RunFile(fname)
+        except:
+            print("Failed to open a file")
 
     def RunFile(self, fname: StringVar):
         fdir = os.path.split(fname)[0]
